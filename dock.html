@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Документация AndroSew</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #6500d9;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        h2 {
+            font-size: 2rem;
+            color: #6500d9;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h3 {
+            font-size: 1.5rem;
+            color: #444;
+            margin-top: 30px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .functionality {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .function-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            transition: transform 0.3s ease;
+        }
+        .function-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .function-title {
+            font-weight: bold;
+            color: #6500d9;
+            margin-bottom: 10px;
+        }
+        .note {
+            background-color: #f8f9fa;
+            border-left: 4px solid #6500d9;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Consolas', monospace;
+        }
+        .nav {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav li a {
+            display: block;
+            padding: 8px 15px;
+            background-color: #eee;
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+        .nav li a:hover {
+            background-color: #6500d9;
+            color: white;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AndroSew</h1>
+        <p>Инструмент для работы с Android-устройствами через ADB и Fastboot</p>
+    </header>
+
+    <div class="container">
+        <div class="nav">
+            <ul>
+                <li><a href="#auto-sewing">Автопрошивка</a></li>
+                <li><a href="#overview">Обзор</a></li>
+                <li><a href="#main-window">Главное окно</a></li>
+                <li><a href="#adb-window">ADB инструменты</a></li>
+                <li><a href="#fastboot-window">Fastboot инструменты</a></li>
+                <li><a href="#documentation-window">Документация</a></li>
+                <li><a href="#settings">Настройки</a></li>
+            </ul>
+        </div>
+
+        <section id="overview" class="card">
+            <h2>Обзор приложения</h2>
+            <p>AndroSew (FL-GUI-Tools) - это графический интерфейс для работы с Android-устройствами с использованием инструментов ADB (Android Debug Bridge) и Fastboot. Приложение позволяет выполнять различные операции с устройствами, такие как отправка файлов, перезагрузка в различные режимы, выполнение команд и многое другое.</p>
+            <p>Основные возможности приложения:</p>
+            <ul>
+                <li>Управление устройствами через ADB</li>
+                <li>Управление устройствами через Fastboot</li>
+                <li>Выполнение команд ADB и Fastboot</li>
+                <li>Перезагрузка устройств в различные режимы</li>
+                <li>Очистка разделов устройства</li>
+                <li>Отправка файлов на устройство</li>
+                <li>Получение информации об устройстве</li>
+            </ul>
+        </section>
+
+        <section id="auto-sewing" class="card">
+            <h2>Автопрошивка</h2>
+            <p>Окно автоматической прошивки позволяет выполнять прошивку устройств по заранее заданным сценариям. Это упрощает процесс и минимизирует риск ошибок.</p>
+            
+            <h3>Основные функции</h3>
+            <div class="functionality">
+                <div class="function-card">
+                    <div class="function-title">Выбор сценария</div>
+                    <p>Позволяет выбрать заранее подготовленный сценарий прошивки.</p>
+                </div>
+                <div class="function-card">
+                    <div class="function-title">Запуск прошивки</div>
+                    <p>Запускает процесс прошивки устройства в соответствии с выбранным сценарием.</p>
+                </div>
+                <div class="function-card">
+                    <div class="function-title">Мониторинг процесса</div>
+                    <p>Отображает ход выполнения прошивки и выводит сообщения об ошибках, если они возникают.</p>
+                </div>
+            </div>
+            
+            <div class="note">
+                <p><strong>Примечание:</strong> Перед началом прошивки убедитесь, что устройство подключено и находится в нужном режиме: загруженно в операционную систему!</p>
+            </div>
+        </section>
+            
+
+        <section id="main-window" class="card">
+            <h2>Главное окно</h2>
+            <p>Главное окно приложения предоставляет доступ ко всем основным функциям через панель инструментов и контейнер для отображения других окон.</p>
+            
+            <h3>Панель инструментов</h3>
+            <p>Панель инструментов содержит кнопки для быстрого доступа к различным функциям:</p>
+            <div class="functionality">
+                <div class="function-card">
+                    <div class="function-title">Командная строка</div>
+                    <p>Открывает командную строку Windows для выполнения команд вручную.</p>
+                </div>
+                <div class="function-card">
+                    <div class="function-title">ADB инструменты</div>
+                    <p>Открывает окно с инструментами ADB для работы с подключенными устройствами.</p>
+                </div>
+                <div class="function-card">
+                    <div class="function-title">Fastboot инструменты</div>
+                    <p>Открывает окно с инструментами Fastboot для работы с устройствами в режиме Fastboot.</p>
+                </div>
+                <div class="function-card">
+                    <div class="function-title">Документация</div>
+                    <p>Открывает встроенную документацию для помощи в использовании приложения.</p>
+                </div>
+                <div class="function-card">
+                    <div class="function-title">Настройки</div>
+                    <p>Открывает окно настроек приложения для изменения параметров работы.</p>
+                </div>
+            </div>
+            
+            <div class="note">
+                <p><strong>Примечание:</strong> В нижней части главного окна расположен индикатор прогресса, который отображается при выполнении длительных операций.</p>
+            </div>
+        </section>
+
+        <section id="adb-window" class="card">
+            <h2>ADB инструменты</h2>
+            <p>Окно ADB инструментов предоставляет доступ к функциям Android Debug Bridge для взаимодействия с подключенными устройствами.</p>
+            
+            <h3>Список устройств</h3>
+            <p>В верхней части окна отображается список подключенных устройств с возможностью обновления.</p>
+            
+            <h3>Основные функции</h3>
+            <div class="functionality">
+                <div class="function-card">
+                    <div class="function-title">Отправка файлов</div>
+                    <p>Выберите файл на компьютере и отправьте его на устройство.</p>
+                    <p><strong>Использование:</strong></p>
+                    <ol>
+                        <li>Нажмите кнопку "Обзор" для выбора файла</li>
+                        <li>Выбранный путь отобразится в текстовом поле</li>
+                        <li>Нажмите кнопку "Отправить"</li>
+                    </ol>
+                </div>
+                <div class="function-card">
+                    <div class="function-title">Перезагрузка устройства</div>
+                    <p>Перезагружает устройство в нужный режим.</p>
+                    <p><strong>Использование:</strong> Нажмите кнопку "Перезагрузить в `РАЗДЕЛ`"</p>
+                </div>
+                <div class="function-card">
+                    <div class="function-title">Режим Sideload</div>
+                    <p>Запускает экран Sideload для установки OTA-обновлений. Для загрузки прошивки используйте команду <code>adb sideload &lt;путь_к_файлу&gt;.zip</code>.</p>
+                    <p><strong>Использование:</strong> Нажмите кнопку "Sideload Screen"</p>
+                </div>
+                <div class="function-card">
+                    <div class="function-title">Очистка разделов</div>
+                    <p>Позволяет очистить различные разделы устройства.</p>
+                    <p><strong>Использование:</strong></p>
+                    <ol>
+                        <li>Выберите раздел из выпадающего списка</li>
+                        <li>Нажмите кнопку "Очистить"</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <h3>Выполнение ADB команд</h3>
+            <p>В нижней части окна находится раздел для ввода и выполнения произвольных ADB команд.</p>
+            <p><strong>Использование:</strong></p>
+            <ol>
+                <li>Введите команду в текстовое поле</li>
+                <li>Нажмите кнопку "Отправить"</li>
+                <li>Результат выполнения команды отобразится в списке ниже</li>
+            </ol>
+            
+            <div class="note">
+                <p><strong>Важно:</strong> Для работы ADB инструментов необходимо, чтобы на устройстве была включена отладка по USB в настройках разработчика, а на компьютере установлены драйверы устройства.</p>
+            </div>
+            
+            <table>
+                <tr>
+                    <th>Команда</th>
+                    <th>Описание</th>
+                </tr>
+                <tr>
+                    <td>adb devices</td>
+                    <td>Список подключенных устройств</td>
+                </tr>
+                <tr>
+                    <td>adb push &lt;источник&gt; &lt;назначение&gt;</td>
+                    <td>Отправить файл на устройство</td>
+                </tr>
+                <tr>
+                    <td>adb pull &lt;источник&gt; &lt;назначение&gt;</td>
+                    <td>Скачать файл с устройства</td>
+                </tr>
+                <tr>
+                    <td>adb reboot</td>
+                    <td>Перезагрузить устройство</td>
+                </tr>
+                <tr>
+                    <td>adb reboot recovery</td>
+                    <td>Перезагрузить в режим восстановления</td>
+                </tr>
+                <tr>
+                    <td>adb shell</td>
+                    <td>Запустить командную оболочку на устройстве</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="fastboot-window" class="card">
+            <h2>Fastboot инструменты</h2>
+            <p>Окно Fastboot инструментов предоставляет функции для работы с устройствами в режиме Fastboot, который используется для прошивки и восстановления устройств.</p>
+            
+            <h3>Список устройств</h3>
+            <p>В верхней части окна отображается список подключенных устройств в режиме Fastboot с возможностью обновления.</p>
+            
+            <h3>Получение переменных</h3>
+            <p>Позволяет получить значения различных системных переменных устройства.</p>
+            <div class="functionality">
+                <div class="function-card">
+                    <div class="function-title">Получение переменной</div>
+                    <p>Получение значения конкретной переменной.</p>
+                    <p><strong>Использование:</strong></p>
+                    <ol>
+                        <li>Введите имя переменной в текстовое поле</li>
+                        <li>Нажмите кнопку "Запросить"</li>
+                        <li>Результат отобразится в списке ниже</li>
+                    </ol>
+                </div>
+                <div class="function-card">
+                    <div class="function-title">Быстрый запрос слотов</div>
+                    <p>Получение значений часто используемых переменных: устройство имеет 2 раздела (A/B) или 1 (A) .</p>
+                    <p><strong>Использование:</strong> Нажмите кнопку "Быстрый запрос слотов"</p>
+                </div>
+            </div>
+            
+            <h3>Запуск образов в ОЗУ</h3>
+            <p>Позволяет загрузить и запустить образы прошивки в оперативной памяти устройства.</p>
+            <div class="functionality">
+                <div class="function-card">
+                    <div class="function-title">Загрузка образа загрузчика (Boot)</div>
+                    <p>Загрузка образа загрузчика в ОЗУ устройства.</p>
+                    <p><strong>Использование:</strong></p>
+                    <ol>
+                        <li>Нажмите кнопку "Обзор" для выбора файла образа</li>
+                        <li>Нажмите кнопку "Запустить"</li>
+                    </ol>
+                </div>
+                <div class="function-card">
+                    <div class="function-title">Загрузка других образов</div>
+                    <p>Загрузка других образов системы (recovery, dtbo и т.д.).</p>
+                    <p><strong>Использование:</strong> Аналогично загрузке образа загрузчика</p>
+                </div>
+
+		<div class="function-card">
+                    <div class="function-title">Прошивка разделов</div>
+                    <p>Прошивает выбранный раздел</p>
+                    <p><strong>Использование:</strong> Аналогично запуску образа в ОЗУ</p>
+                </div>
+            </div>
+            
+            <h3>Перезагрузка устройства</h3>
+            <div class="function-card">
+                    <div class="function-title">Перезагрузка устройства</div>
+                    <p>Перезагружает устройство в нужный режим.</p>
+                    <p><strong>Использование:</strong> Нажмите кнопку "Перезагрузить в `РАЗДЕЛ`"</p>
+                </div>
+               
+        
+            <h3>Выполнение Fastboot команд</h3>
+            <p>В нижней части окна находится раздел для ввода и выполнения произвольных Fastboot команд.</p>
+            <p><strong>Использование:</strong></p>
+            <ol>
+                <li>Введите команду в текстовое поле</li>
+                <li>Нажмите кнопку "Отправить"</li>
+                <li>Результат выполнения команды отобразится в списке ниже</li>
+            </ol>
+            
+            <div class="note">
+                <p><strong>Важно:</strong> Для работы с Fastboot инструментами устройство должно быть загружено в режим Fastboot (обычно достигается одновременным нажатием кнопок питания и громкости вниз при выключенном устройстве).</p>
+            </div>
+            
+            <table>
+                <tr>
+                    <th>Команда</th>
+                    <th>Описание</th>
+                </tr>
+                <tr>
+                    <td>fastboot devices</td>
+                    <td>Список подключенных устройств в режиме Fastboot</td>
+                </tr>
+                <tr>
+                    <td>fastboot getvar &lt;переменная&gt;</td>
+                    <td>Получить значение переменной</td>
+                </tr>
+                <tr>
+                    <td>fastboot flash &lt;раздел&gt; &lt;файл&gt;</td>
+                    <td>Прошить раздел устройства указанным файлом</td>
+                </tr>
+                <tr>
+                    <td>fastboot boot &lt;образ&gt;</td>
+                    <td>Загрузить образ в ОЗУ и запустить его</td>
+                </tr>
+                <tr>
+                    <td>fastboot reboot</td>
+                    <td>Перезагрузить устройство в обычный режим</td>
+                </tr>
+                <tr>
+                    <td>fastboot reboot recovery</td>
+                    <td>Перезагрузить устройство в режим восстановления</td>
+                </tr>
+                <tr>
+                    <td>fastboot reboot bootloader</td>
+                    <td>Перезагрузить устройство в режим загрузчика</td>
+                </tr>
+            </table>
+        </section>
+</div> 
+        <section id="documentation-window" class="card">
+            <h2>Документация</h2>
+            <p>Окно документации предоставляет доступ к встроенной документации по использованию приложения через встроенный веб-браузер.</p>
+            
+            <div class="note">
+                <p><strong>Примечание:</strong> Для отображения документации используется встроенный браузер Chromium (CefSharp), который загружает документацию из указанного в настройках URL.</p>
+            </div>
+        </section>
+
+        <section id="settings" class="card">
+            <h2>Настройки</h2>
+            <p>Окно настроек позволяет настроить различные параметры работы приложения.</p>
+            
+            <h3>Доступные настройки:</h3>
+            <div class="functionality">
+                <div class="function-card">
+                    <div class="function-title">Анимация</div>
+                    <p>Включение или отключение анимации в интерфейсе.</p>
+                </div>
+                <div class="function-card">
+                    <div class="function-title">Путь к инструментам</div>
+                    <p>Указание пути к директории с инструментами ADB и Fastboot.</p>
+                </div>
+                <div class="function-card">
+                    <div class="function-title">Запуск утилит от имени администратора</div>
+                    <p>Включение запуска утилит с правами администратора.</p>
+                </div>
+                <div class="function-card">
+                    <div class="function-title">Ссылка на документацию</div>
+                    <p>URL для загрузки встроенной документации.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>AndroSew (FL-GUI-Tools)</p>
+            <p>Разработано с использованием .NET Framework 4.8 и технологий WPF.</p>
+        </footer>
+    </div>
+</body>
+</html>
